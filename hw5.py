@@ -52,8 +52,13 @@ def main(filename):
         writer.writerows(counter.most_common())
 
     # dump to a json file named "wordcount.json"
-    ...
-
+    with open(“wordcount.json", "w") as json_file:
+        # create a csv writer from a file object (or descriptor)
+        writer = json.writer(json_file)
+        # write table head
+        writer.writerow(['word', 'count'])
+        # write all (word, count) pair into the csv writer
+        writer.writerows(counter.most_common())
     # BONUS: dump to a pickle file named "wordcount.pkl"
     # hint: dump the Counter object directly
 
