@@ -36,21 +36,20 @@ def main(filename):
     counter.update(all_words)
     counter.most_common()
     
-    for ch, count in counter.most_common():
-        print(ch, count)
+    
 
     # dump to a csv file named "wordcount.csv":
     # word,count
     # a,12345
     # I,23456
     # ...
-    with open(...) as csv_file:
+    with open(counter.most_common) as csv_file:
         # create a csv writer from a file object (or descriptor)
-        writer = ...
+        writer = csv.writer(csv_file)
         # write table head
         writer.writerow(['word', 'count'])
         # write all (word, count) pair into the csv writer
-        writer.writerows(...)
+        writer.writerows(word, count)
 
     # dump to a json file named "wordcount.json"
     ...
