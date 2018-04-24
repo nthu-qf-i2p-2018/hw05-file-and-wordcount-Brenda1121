@@ -5,7 +5,7 @@ import json
 
 def main(filename):
     # read file into lines
-    txtfile = open("filename.txt")
+    txtfile = open(filename.txt)
     text = txtfile.read()
     lines = txtfile.readline()    
 
@@ -52,9 +52,9 @@ def main(filename):
         writer.writerows(counter.most_common())
 
     # dump to a json file named "wordcount.json"
-    with open(“wordcount.json", "w") as json_file:
-        count = json.load(wordcount)
-        type(wordcount)
+    with open(“wordcount.json", "w") as f:
+        json.dump(f)
+        
               
     # BONUS: dump to a pickle file named "wordcount.pkl"
     # hint: dump the Counter object directly
