@@ -5,7 +5,7 @@ import json
 
 def main(filename):
     # read file into lines
-    txtfile = open(filename.txt)
+    txtfile = open(str(filename.txt))
     text = txtfile.read()
     lines = txtfile.readline()    
 
@@ -53,7 +53,10 @@ def main(filename):
 
     # dump to a json file named "wordcount.json"
     with open(“wordcount.json", "w") as f:
-        json.dump(f)
+        f = open(str(count.json))
+        json.dumps(f)
+        count = json.loads(f)
+        json_text = open(str(count.json)).read()
         
               
     # BONUS: dump to a pickle file named "wordcount.pkl"
