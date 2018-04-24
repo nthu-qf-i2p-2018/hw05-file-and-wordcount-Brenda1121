@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import csv
 import json
 import pickle
@@ -6,8 +5,7 @@ import pickle
 def main(filename):
     # read file into lines
     txtfile = open(filename)
-    text = txtfile.read()
-    lines = txtfile.readline()    
+    lines = txtfile.readlines()    
 
     # declare a word list
     all_words = []
@@ -24,17 +22,16 @@ def main(filename):
             # then, remove (strip) unwanted punctuations from every word
             # "dream." => "dream"
             import string
-            word = words.strip(string.punctuation)
+            word = word.strip(string.punctuation)
             # check if word is not empty
             if word:
                 # append the word to "all_words" list
-               all_words.append(word)
+                all_words.append(word)
 
     # compute word count from all_words
     from collections import Counter
     counter = Counter(all_words)
-    counter.update(all_words)
-    counter.most_common()
+
     
     
 
@@ -54,15 +51,9 @@ def main(filename):
     # dump to a json file named "wordcount.json"
     with open("wordcount.json", "w") as f:
         json.dump(counter.most_common(), f)
-        
-        
+
               
-    # BONUS: dump to a pickle file named "wordcount.pkl"
-    # hint: dump the Counter object directly
-    with open("wordcount.pkl","wb") as pickle_file:
-         pkl.dump(counter.most_common(), pickle_file)
-               
+    pickle.dump(counter.most_common() , open("wordcount.pkl", 'wb'))
 
 if __name__ == '__main__':
     main("i_have_a_dream.txt")
-    
